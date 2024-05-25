@@ -14,6 +14,15 @@ pipeline {
     // Define stages for the pipeline
     stages {
         // Stage for deploying files to S3 bucket
+        stage('Checkout') {
+            steps {
+                // Execute shell commands to copy HTML files to S3 bucket
+                script {
+                    git "https://github.com/gouribhosale/jenkins_pipeline_deply_to_s3.git"
+                }
+            }
+        }
+        // Stage for deploying files to S3 bucket
         stage('Deploy to S3') {
             steps {
                 // Execute shell commands to copy HTML files to S3 bucket
